@@ -40,7 +40,7 @@ def load_train_fs():
     # For the prediction process, there is no need to shuffle the dataset. 
     # Owing to out of memory problem, Gaussian process only use part of training data, the prediction of gaussian process
     # may be a little different from the model,which the training data was shuffled.
-    train_fs = np.genfromtxt(open(dir + '/train_v2_combine_5000.csv','rb'), delimiter=',', skip_header=1)
+    train_fs = np.genfromtxt(open(dir + '/train_v2_gbm_5000.csv','rb'), delimiter=',', skip_header=1)
     col_mean = stats.nanmean(train_fs, axis=0)
     inds = np.where(np.isnan(train_fs))
     train_fs[inds] = np.take(col_mean, inds[1])
@@ -76,7 +76,7 @@ def toLabels(train_y):
 
 # generate the output file based to the predictions
 def output_preds(preds):
-    out_file = dir + '/output_combine_5000.csv'
+    out_file = dir + '/output_gbm_5000.csv'
     fs = open(out_file,'w')
     fs.write('id,loss\n')
     for i in range(len(preds)):
@@ -321,10 +321,10 @@ if __name__ == '__main__':
     train_x, train_y = train_type(train_fs)
     test_x = test_type(test_fs)
     gbc = gbc_classify(train_x, train_y)
-    svr_preds = gbc_svr_predict(gbc, train_x, train_y, test_x)
+   # svr_preds = gbc_svr_predict(gbc, train_x, train_y, test_x)
     gbr_preds = gbc_gbr_predict(gbc, train_x, train_y, test_x)
-    gp_preds = gbc_gp_predict(train_x, train_y, test_x)
-    preds_all = svr_preds * 0.4 + gp_preds * 0.25 + gbr_preds * 0.35
-    output_preds(preds_all)
+   # gp_preds = gbc_gp_predict(train_x, train_y, test_x)
+    #preds_all = svr_preds * 0.4 + gp_preds * 0.25 + gbr_preds * 0.35
+    output_preds(gbr_preds)
     
 

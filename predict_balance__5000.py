@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-
+import random,sys
 import re
 import math
 import collections
@@ -40,7 +40,7 @@ def load_train_fs():
     # For the prediction process, there is no need to shuffle the dataset. 
     # Owing to out of memory problem, Gaussian process only use part of training data, the prediction of gaussian process
     # may be a little different from the model,which the training data was shuffled.
-    train_fs = np.genfromtxt(open(dir + '/train_v2_combine_5000.csv','rb'), delimiter=',', skip_header=1)
+    train_fs = np.genfromtxt(open(dir + '/train_v2_balance_5000.csv','rb'), delimiter=',', skip_header=1)
     col_mean = stats.nanmean(train_fs, axis=0)
     inds = np.where(np.isnan(train_fs))
     train_fs[inds] = np.take(col_mean, inds[1])
@@ -64,8 +64,36 @@ def test_type(test_fs):
 
 # extract features from train data
 def train_type(train_fs):
-    train_x = train_fs[:,range(1, label_index)]
-    train_y= train_fs[:,-1]
+    print(len(train_fs)) 
+    print(len(train_fs[1]))
+    print (type(train_fs))
+    count=0
+    train_x_temp=[]
+    default_count=0
+    non_default_count = 0
+    while(default_count<2500 or non_default_count<2500):
+	randline=random.choice(train_fs)
+	if randline[-1]==0 and non_default_count < 2500:
+	    non_default_count+=1
+	    train_x_temp.append(randline)
+
+        elif randline[-1] !=0 and default_count < 2500:
+            default_count+=1
+	    train_x_temp.append(randline)
+    print(len(train_x_temp))
+    print(len(train_x_temp[1]))
+    train_x_temp=np.array(train_x_temp).reshape(len(train_x_temp),label_index+1) 
+    print(train_x_temp[1])
+    print(len(train_x_temp))
+    print(len(train_x_temp[1]))
+    print(range(1, label_index))
+    print(type(train_x_temp))
+    
+    train_x = train_x_temp[:,range(1, label_index)]
+    train_y= train_x_temp[:,-1]
+    print (type(train_x))
+    print (type(train_y))
+    print len(train_y)
     return train_x, train_y
 
 # transform the loss to the binary form
@@ -76,7 +104,7 @@ def toLabels(train_y):
 
 # generate the output file based to the predictions
 def output_preds(preds):
-    out_file = dir + '/output_combine_5000.csv'
+    out_file = dir + '/output_balance_5000.csv'
     fs = open(out_file,'w')
     fs.write('id,loss\n')
     for i in range(len(preds)):
@@ -91,6 +119,7 @@ def output_preds(preds):
 
 # get the top feature indexes by invoking f_regression 
 def getTopFeatures(train_x, train_y, n_features=100):
+    
     f_val, p_val = f_regression(train_x,train_y)
     f_val_dict = {}
     p_val_dict = {}
@@ -108,7 +137,7 @@ def getTopFeatures(train_x, train_y, n_features=100):
     feature_indexs = []
     for i in range(0,n_features):
         feature_indexs.append(sorted_f[i][0])
-    
+   # print len(feature_indexs)    
     return feature_indexs
 
 # generate the new data, based on which features are generated, and used
@@ -327,4 +356,3 @@ if __name__ == '__main__':
     preds_all = svr_preds * 0.4 + gp_preds * 0.25 + gbr_preds * 0.35
     output_preds(preds_all)
     
-
