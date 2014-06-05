@@ -42,14 +42,25 @@ labs=c("1-10","11-20","21-30", "31-40", "41-50", "51-60", "61-70", "71-80", "81-
 #barplot(data,col=c("deeppink","mediumturquoise","yellow","greenyellow","violet","red","green", "mediumturquoise","lavender","sandybrown","hotpink"),ylim=c(0,8000),width=1,space=1,ylab="Frequency",las=1)
 
 ########### output_1000 ############
-barplot(data,col=c("deeppink","mediumturquoise","yellow","greenyellow","violet","red","green", "mediumturquoise","lavender","sandybrown","hotpink"),ylim=c(0,16000),width=1,space=1,ylab="Frequency",las=1)
+#barplot(data,col=c("deeppink","mediumturquoise","yellow","greenyellow","violet","red","green", "mediumturquoise","lavender","sandybrown","hotpink"),ylim=c(0,16000),width=1,space=1,ylab="Frequency",las=1)
+
+########### output_gbm_1000 ############
+#barplot(data,col=c("deeppink","mediumturquoise","yellow","greenyellow","violet","red","green", "mediumturquoise","lavender","sandybrown","hotpink"),ylim=c(0,10000),width=1,space=1,ylab="Frequency",las=1)
+
+########### output_gp_1000 ############
+barplot(data,col=c("deeppink","mediumturquoise","yellow","greenyellow","violet","red","green", "mediumturquoise","lavender","sandybrown","hotpink"),ylim=c(0,14000),width=1,space=1,ylab="Frequency",las=1)
+
 text(x=seq(1.5,20,by=2),y=-0.15, srt = 45, adj = 1, labels = labs,xpd = TRUE)
 
 ########### train_v2 ############
 #abline(h=c(1000,2000,3000,4000,5000,6000,7000,8000),col="#00000088",lwd=2)
-
 ########### output_1000 ############
-abline(h=c(1000,3000,5000,7000,9000,11000,13000,15000),col="#00000088",lwd=2)
+#abline(h=c(1000,3000,5000,7000,9000,11000,13000,15000),col="#00000088",lwd=2)
+########### output_gbm_1000 ############
+#abline(h=c(1000,3000,5000,7000,9000),col="#00000088",lwd=2)
+########### output_gp_1000 ############
+abline(h=c(1000,3000,5000,7000,9000,11000,13000),col="#00000088",lwd=2)
+
 abline(h=0)
 cat("1-10:", v1)
 cat("\n")
@@ -70,3 +81,5 @@ cat("\n")
 cat("81-90: ", v9)
 cat("\n")
 cat("91-100: ", v10)
+
+print(v1)

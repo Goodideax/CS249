@@ -2,7 +2,14 @@
 ########### train_v2 ############
 #loss <- train_v2$loss
 ########### output_1000 ############
-loss <- output_1000$loss
+#loss <- output_1000$loss
+########### output_gbm_1000 ############
+#loss <- output_gbm_1000$loss
+########### output_gbm_1000 ############
+loss <- output_gp_1000$loss
+########### output_svm_1000 ############
+loss <- output_svm_1000$loss
+
 count <- 0
 num <- length(loss)
 for( i in 1:num)

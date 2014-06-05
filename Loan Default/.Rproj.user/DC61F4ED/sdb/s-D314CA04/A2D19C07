@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1401954901981.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A2D19C07",
+    "lastKnownWriteTime" : 140273631887360,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "output_svm_1000",
+        "contentUrl" : "content?title=output_svm_1000&file=32c96ba239d24b67a43a8c758cb4b519.htm",
+        "displayedObservations" : 1000,
+        "displayedVariables" : 2,
+        "totalObservations" : 210944,
+        "variables" : 2
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
