@@ -1,0 +1,17 @@
+{
+    "contents" : "# count default numbers and non-default numbers\n########### train_v2 ############\n#loss <- train_v2$loss\n########### output_1000 ############\nloss <- output_1000$loss\ncount <- 0\nnum <- length(loss)\nfor( i in 1:num)\n  if(loss[i] == 0) count <- count + 1\nprint(count)\n# loan status\nslices <- c(count,num - count )\nlbls <- c(\"default\", \"non-default\")\npie(slices, labels = lbls, main = \"Pie Chart of loan status\")\n####################\n\n",
+    "created" : 1401943860354.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1641042306",
+    "id" : "451C9745",
+    "lastKnownWriteTime" : 1401953700,
+    "path" : "~/Documents/ucla_projects/cs249/Load Default/graph.R",
+    "project_path" : "graph.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

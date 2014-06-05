@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1401573515500.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "CBA04635",
+    "lastKnownWriteTime" : 140634409140224,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "test_v2",
+        "contentUrl" : "content?title=test_v2&file=16ab2f9d7a46447590dcdf026564c580.htm",
+        "displayedObservations" : "1000",
+        "displayedVariables" : 100,
+        "totalObservations" : "210945",
+        "variables" : "770"
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

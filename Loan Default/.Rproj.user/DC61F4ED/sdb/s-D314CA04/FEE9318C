@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1401944814558.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "FEE9318C",
+    "lastKnownWriteTime" : 7308604914264011873,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "train_v2",
+        "contentUrl" : "content?title=train_v2&file=e925115f93184071b51ade0c9af171ad.htm",
+        "displayedObservations" : 1000,
+        "displayedVariables" : 100,
+        "totalObservations" : 105471,
+        "variables" : 771
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
