@@ -1,0 +1,7 @@
+1. Summary:
+	a) binary default classification
+	b) given default, predict loss by regression
+
+2. Features Selection/ Extraction
+	a) all linear combinations of f527, f528, f274
+

@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1401952526043.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DDC955EE",
+    "lastKnownWriteTime" : 140277395656704,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "output_1000",
+        "contentUrl" : "content?title=output_1000&file=54cb127f53154c75a65bca7f49a50df4.htm",
+        "displayedObservations" : 1000,
+        "displayedVariables" : 2,
+        "totalObservations" : 210944,
+        "variables" : 2
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
